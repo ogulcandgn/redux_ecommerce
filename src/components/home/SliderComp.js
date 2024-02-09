@@ -8,9 +8,8 @@ const SliderComp = () => {
   var settings = {
     dots: true,
     infinite: true,
-    speed: 500,
     autoplay: true,
-    autoplaySpeed: 1500,
+    autoplaySpeed: 3500,
     slidesToShow: 1,
     slidesToScroll: 1,
   };
