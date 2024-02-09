@@ -2,11 +2,52 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Route,
+  Link,
+} from "react-router-dom";
+import Home from "./pages/Home";
+import Navbar from "./components/navbar/Navbar";
+import PageContainer from "./containers/PageContainer";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: (
+      <PageContainer>
+        <Navbar />
+        <Home />
+      </PageContainer>
+    ),
+  },
+  {
+    path: "about",
+    element: (
+      <PageContainer>
+        <Navbar />
+        About
+      </PageContainer>
+    ),
+  },
+  {
+    path: "deneme",
+    element: (
+      <PageContainer>
+        <Navbar />
+        deneme ekranı
+      </PageContainer>
+    ),
+  },
+]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router}>
+      <App />
+    </RouterProvider>
   </React.StrictMode>
 );
 
