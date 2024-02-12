@@ -38,6 +38,19 @@ const productSlice = createSlice({
       //* fail olma durumu
       .addCase(getProducts.rejected, (state, action) => {
         state.productsStatus = STATUS.FAIL;
+      })
+      //* Bekleme durumu
+      .addCase(getDetailProducts.pending, (state, action) => {
+        state.productDetailStatus = STATUS.LOADING;
+      })
+      //* başarıyla tamamlanma durumu
+      .addCase(getDetailProducts.fulfilled, (state, action) => {
+        state.productDetailStatus = STATUS.SUCCESS;
+        state.productDetail = action.payload;
+      })
+      //* fail olma durumu
+      .addCase(getDetailProducts.rejected, (state, action) => {
+        state.productDetailStatus = STATUS.FAIL;
       });
   },
 });
