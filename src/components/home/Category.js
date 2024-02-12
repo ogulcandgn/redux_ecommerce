@@ -6,13 +6,25 @@ const Category = () => {
   const dispatch = useDispatch();
   const { categories } = useSelector((state) => state.categories);
 
-  console.log(categories, "categoriler");
-
   useEffect(() => {
     dispatch(getCategories());
   }, [dispatch]);
 
-  return <div className="w-1/6 bg-gray-100 mr-5 p-1">Category</div>;
+  return (
+    <div className="w-1/6 bg-gray-100 mr-5 p-1">
+      <div className="p-2">
+        <h2 className="font-bold text-xl border-b pb-1">KATEGORİLER</h2>
+        {categories?.map((category, index) => (
+          <div
+            className="text-lg cursor-pointer hover:bg-gray-200 p-2"
+            key={index}
+          >
+            {category}
+          </div>
+        ))}
+      </div>
+    </div>
+  );
 };
 
 export default Category;
