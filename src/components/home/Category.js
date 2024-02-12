@@ -13,7 +13,7 @@ const Category = () => {
   return (
     <div className="w-1/6 bg-gray-100 mr-5 p-1">
       <div className="p-2">
-        <h2 className="font-bold text-xl border-b pb-1">KATEGORİLER</h2>
+        <h2 className="font-bold text-xl border-b p-2">KATEGORİLER</h2>
         {categories?.map((category, index) => (
           <div
             className="text-lg cursor-pointer hover:bg-gray-200 p-2"
