@@ -1,28 +1,57 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
+import ReactPaginate from "react-paginate";
 import { useSelector, useDispatch } from "react-redux";
 import { getProducts } from "../../redux/ProductSlices";
 import Loading from "../Loading";
 import Product from "./product";
 
 const Products = () => {
-  const dispatch = useDispatch();
   const { products, productsStatus } = useSelector((state) => state.products); //state.products'daki products store.js'deki belirlediğimiz products'dan geliyor
+  const dispatch = useDispatch();
+
+  const [itemOffset, setItemOffset] = useState(0);
+
+  const itemsPerPage = 6;
+  const endOffset = itemOffset + itemsPerPage;
+  console.log(`Loading items from ${itemOffset} to ${endOffset}`);
+  const currentItems = products.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(products.length / itemsPerPage);
+
+  // Invoke when user click to request another page.
+  const handlePageClick = (event) => {
+    const newOffset = (event.selected * itemsPerPage) % products.length;
+    console.log(
+      `User requested page number ${event.selected}, which is offset ${newOffset}`
+    );
+    setItemOffset(newOffset);
+  };
 
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
 
   return (
-    <div className="p-2">
+    <div>
       {productsStatus == "LOADING" ? (
         <Loading />
       ) : (
-        <div>
-          <h2 className="font-bold text-xl border-b p-2">ÜRÜNLER</h2>
-          {products?.map((product, i) => (
-            <Product key={i} product={product} />
-          ))}
-        </div>
+        <>
+          <div className="flex flex-wrap">
+            {currentItems?.map((product, i) => (
+              <Product key={i} product={product} />
+            ))}
+          </div>
+          <ReactPaginate
+            className="paginate"
+            breakLabel="..."
+            onClick={handlePageClick}
+            nextLabel=" >"
+            pageRangeDisplayed={5}
+            pageCount={pageCount}
+            previousLabel="< "
+            renderOnZeroPageCount={null}
+          />
+        </>
       )}
     </div>
   );
