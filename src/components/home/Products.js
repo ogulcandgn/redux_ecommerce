@@ -12,7 +12,6 @@ const Products = () => {
     dispatch(getProducts());
   }, [dispatch]);
 
-  console.log(products);
   return (
     <div className="p-2">
       {productsStatus == "LOADING" ? (

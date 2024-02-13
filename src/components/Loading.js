@@ -1,18 +1,13 @@
 import React from "react";
-import { Audio } from "react-loader-spinner";
 
 const Loading = () => {
   return (
     <div>
-      <Audio
-        height="80"
-        width="80"
-        radius="9"
-        color="green"
-        ariaLabel="loading"
-        wrapperStyle
-        wrapperClass
-      />
+      <div className="relative inline-flex">
+        <div className="w-8 h-8 bg-blue-500 rounded-full"></div>
+        <div className="w-8 h-8 bg-blue-500 rounded-full absolute top-0 left-0 animate-ping"></div>
+        <div className="w-8 h-8 bg-blue-500 rounded-full absolute top-0 left-0 animate-pulse"></div>
+      </div>
     </div>
   );
 };
