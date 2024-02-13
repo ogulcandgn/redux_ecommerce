@@ -18,7 +18,7 @@ const Products = () => {
         <Loading />
       ) : (
         <div>
-          <h2>Ürünler</h2>
+          <h2 className="font-bold text-xl border-b p-2">ÜRÜNLER</h2>
           {products?.map((product, i) => (
             <Product key={i} product={product} />
           ))}
