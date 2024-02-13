@@ -14,7 +14,7 @@ export const getProducts = createAsyncThunk("product", async () => {
   return data;
 });
 
-export const getDetailProducts = createAsyncThunk("product", async (id) => {
+export const getDetailProducts = createAsyncThunk("products", async (id) => {
   const responce = await fetch(`https://fakestoreapi.com/products/${id}`);
   const data = responce.json();
   return data;
@@ -23,10 +23,11 @@ export const getDetailProducts = createAsyncThunk("product", async (id) => {
 const productSlice = createSlice({
   name: "product",
   initialState,
-  reducer: {},
+  reducers: {},
+  // api'den veri çekeceğimiz için reducer'ları extraReducer olarak belirtiyoruz
   extraReducers: (builder) => {
     builder
-      //* Bekleme durumu
+      //*bekleme alanı
       .addCase(getProducts.pending, (state, action) => {
         state.productsStatus = STATUS.LOADING;
       })
@@ -35,22 +36,20 @@ const productSlice = createSlice({
         state.productsStatus = STATUS.SUCCESS;
         state.products = action.payload;
       })
-      //* fail olma durumu
+      // //* fail olma durumu
       .addCase(getProducts.rejected, (state, action) => {
         state.productsStatus = STATUS.FAIL;
       })
-      //* Bekleme durumu
+      //* detail products durumları
       .addCase(getDetailProducts.pending, (state, action) => {
         state.productDetailStatus = STATUS.LOADING;
       })
-      //* başarıyla tamamlanma durumu
       .addCase(getDetailProducts.fulfilled, (state, action) => {
-        state.productDetailStatus = STATUS.SUCCESS;
-        state.productDetail = action.payload;
+        state.productsStatus = STATUS.SUCCESS;
+        state.products = action.payload;
       })
-      //* fail olma durumu
       .addCase(getDetailProducts.rejected, (state, action) => {
-        state.productDetailStatus = STATUS.FAIL;
+        state.productsStatus = STATUS.FAIL;
       });
   },
 });

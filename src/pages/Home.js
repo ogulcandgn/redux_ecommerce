@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Category from "../components/home/Category";
 import Products from "../components/home/Products";
 import SliderComp from "../components/home/SliderComp";
