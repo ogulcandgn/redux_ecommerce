@@ -31,19 +31,25 @@ const router = createBrowserRouter([
   {
     path: "about",
     element: (
-      <PageContainer>
-        <Navbar />
-        About
-      </PageContainer>
+      <>
+        <TopHeader />
+        <PageContainer>
+          <Navbar />
+          About
+        </PageContainer>
+      </>
     ),
   },
   {
     path: "deneme",
     element: (
-      <PageContainer>
-        <Navbar />
-        deneme ekranı
-      </PageContainer>
+      <>
+        <TopHeader />
+        <PageContainer>
+          <Navbar />
+          deneme ekranı
+        </PageContainer>
+      </>
     ),
   },
 ]);

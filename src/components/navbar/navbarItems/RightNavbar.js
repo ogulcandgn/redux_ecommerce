@@ -6,7 +6,7 @@ import { BsBasket } from "react-icons/bs";
 const RightNavbar = () => {
   return (
     <div className="flex items-center gap-8">
-      <div className="flex items-center border p-3 rounded-full bg-gray-200">
+      <div className="flex items-center border px-12 py-3 rounded-full bg-gray-200">
         <input
           className="bg-gray-200 outline-none"
           type="text"
