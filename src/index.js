@@ -13,15 +13,19 @@ import Navbar from "./components/navbar/Navbar";
 import PageContainer from "./containers/PageContainer";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
+import TopHeader from "./components/TopHeader";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: (
-      <PageContainer>
-        <Navbar />
-        <Home />
-      </PageContainer>
+      <>
+        <TopHeader />
+        <PageContainer>
+          <Navbar />
+          <Home />
+        </PageContainer>
+      </>
     ),
   },
   {
