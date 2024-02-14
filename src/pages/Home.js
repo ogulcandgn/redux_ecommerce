@@ -5,13 +5,16 @@ import SliderComp from "../components/home/SliderComp";
 import Sorting from "../components/home/Sorting";
 
 const Home = () => {
+  const [category, setCategory] = useState("");
+  const [sort, setSort] = useState("");
+
   return (
     <div>
       <SliderComp />
       <Sorting />
       <div className="flex">
-        <Category />
-        <Products />
+        <Category setCategory={setCategory} />
+        <Products category={category} />
       </div>
     </div>
   );

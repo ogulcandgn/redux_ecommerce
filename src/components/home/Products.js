@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import ReactPaginate from "react-paginate";
 import { useSelector, useDispatch } from "react-redux";
-import { getProducts } from "../../redux/ProductSlices";
+import { getProducts, getCategoryProducts } from "../../redux/ProductSlices";
 import Loading from "../Loading";
 import Product from "./product";
 
-const Products = () => {
+const Products = ({ category }) => {
   const { products, productsStatus } = useSelector((state) => state.products); //state.products'daki products store.js'deki belirlediğimiz products'dan geliyor
   const dispatch = useDispatch();
 
@@ -27,8 +27,12 @@ const Products = () => {
   };
 
   useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
+    if (category) {
+      dispatch(getCategoryProducts(category));
+    } else {
+      dispatch(getProducts());
+    }
+  }, [dispatch, category]);
 
   return (
     <div>
