@@ -14,6 +14,9 @@ const Category = ({ setCategory }) => {
     <div className="w-1/6  mr-5 p-1">
       <div className="p-2">
         <h2 className="font-bold text-xl border-b p-2">KATEGORİLER</h2>
+        {/* <div className="text-lg cursor-pointer hover:bg-gray-200 p-2">
+          hepsi
+        </div> */}
         {categories?.map((category, index) => (
           <div
             className="text-lg cursor-pointer hover:bg-gray-200 p-2"

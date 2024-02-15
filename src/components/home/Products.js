@@ -5,7 +5,7 @@ import { getProducts, getCategoryProducts } from "../../redux/ProductSlices";
 import Loading from "../Loading";
 import Product from "./product";
 
-const Products = ({ category }) => {
+const Products = ({ category, sort }) => {
   const { products, productsStatus } = useSelector((state) => state.products); //state.products'daki products store.js'deki belirlediğimiz products'dan geliyor
   const dispatch = useDispatch();
 
@@ -31,6 +31,8 @@ const Products = ({ category }) => {
     }
   }, [dispatch, category]);
 
+  console.log(sort);
+
   return (
     <div>
       {productsStatus == "LOADING" ? (
@@ -38,9 +40,17 @@ const Products = ({ category }) => {
       ) : (
         <>
           <div className="flex flex-wrap">
-            {currentItems?.map((product, i) => (
-              <Product key={i} product={product} />
-            ))}
+            {currentItems
+              ?.sort((a, b) =>
+                sort == "inc"
+                  ? a.price - b.price
+                  : sort == "dec"
+                  ? b.price - a.price
+                  : null
+              )
+              .map((product, i) => (
+                <Product key={i} product={product} />
+              ))}
           </div>
           <ReactPaginate
             className="paginate"
