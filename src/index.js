@@ -14,6 +14,7 @@ import PageContainer from "./containers/PageContainer";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import TopHeader from "./components/TopHeader";
+import Detail from "./pages/Detail";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +53,32 @@ const router = createBrowserRouter([
       </>
     ),
   },
+  {
+    path: "/",
+    element: (
+      <>
+        <TopHeader />
+        <PageContainer>
+          <Navbar />
+          <Detail />
+        </PageContainer>
+      </>
+    ),
+    children: [
+      {
+        path: "/products/:id",
+        element: (
+          <>
+            <TopHeader />
+            <PageContainer>
+              <Navbar />
+              <Detail />
+            </PageContainer>
+          </>
+        ),
+      },
+    ],
+  },
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -62,7 +89,3 @@ root.render(
     </RouterProvider>
   </Provider>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
