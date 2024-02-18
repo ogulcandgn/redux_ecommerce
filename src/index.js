@@ -16,76 +16,9 @@ import { store } from "./redux/store";
 import TopHeader from "./components/TopHeader";
 import Detail from "./pages/Detail";
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: (
-      <>
-        <TopHeader />
-        <PageContainer>
-          <Navbar />
-          <Home />
-        </PageContainer>
-      </>
-    ),
-  },
-  {
-    path: "about",
-    element: (
-      <>
-        <TopHeader />
-        <PageContainer>
-          <Navbar />
-          About
-        </PageContainer>
-      </>
-    ),
-  },
-  {
-    path: "deneme",
-    element: (
-      <>
-        <TopHeader />
-        <PageContainer>
-          <Navbar />
-          deneme ekranı
-        </PageContainer>
-      </>
-    ),
-  },
-  {
-    path: "/",
-    element: (
-      <>
-        <TopHeader />
-        <PageContainer>
-          <Navbar />
-          <Detail />
-        </PageContainer>
-      </>
-    ),
-    children: [
-      {
-        path: "/products/:id",
-        element: (
-          <>
-            <TopHeader />
-            <PageContainer>
-              <Navbar />
-              <Detail />
-            </PageContainer>
-          </>
-        ),
-      },
-    ],
-  },
-]);
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={store}>
-    <RouterProvider router={router}>
-      <App />
-    </RouterProvider>
+    <App />
   </Provider>
 );
