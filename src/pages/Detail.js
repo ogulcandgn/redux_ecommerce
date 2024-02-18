@@ -17,9 +17,14 @@ const Detail = () => {
   }, [dispatch, id]);
 
   console.log(productDetail);
+  console.log(productDetailStatus);
   return (
     <div>
-      {productDetailStatus == "LOADING" ? <Loading /> : <div>deneme</div>}
+      {productDetailStatus == "LOADING" ? (
+        <Loading />
+      ) : (
+        <DetailComp productDetail={productDetail} />
+      )}
     </div>
   );
 };

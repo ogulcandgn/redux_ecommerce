@@ -7,6 +7,7 @@ const DetailComp = ({ productDetail }) => {
       <div>
         <div>{productDetail?.title}</div>
       </div>
+      deneme
     </div>
   );
 };
