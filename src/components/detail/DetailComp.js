@@ -1,6 +1,19 @@
 import React from "react";
+import { useState } from "react";
 
 const DetailComp = ({ productDetail }) => {
+  const [quantity, setQuantity] = useState(0);
+
+  const increment = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const decrement = () => {
+    if (quantity > 0) {
+      setQuantity(quantity - 1);
+    }
+  };
+
   return (
     <div className="flex gap-10 my-20">
       <img
@@ -17,9 +30,17 @@ const DetailComp = ({ productDetail }) => {
           {productDetail?.price} <span className="text-sm">TL</span>
         </div>
         <div className="flex items-center gap-5 my-4">
-          <div className="text-3xl">-</div>
-          <input className="w-5 text-center" type="text" value="0" />
-          <div className="text-3xl">+</div>
+          <div onClick={decrement} className="text-3xl cursor-pointer">
+            -
+          </div>
+          <input
+            className="w-5 text-center text-4xl"
+            type="text"
+            value={quantity}
+          />
+          <div onClick={increment} className="text-3xl cursor-pointer">
+            +
+          </div>
         </div>
         <div>
           <div className="my-4 border w-[200px] text-2xl text-white rounded-md bg-blue-500 hover:bg-blue-600 cursor-pointer h-16 flex items-center justify-center">
