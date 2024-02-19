@@ -51,6 +51,14 @@ const cartSlice = createSlice({
         storeInLocalStorage(state.carts);
       }
     },
-    removeToCart: (state, action) => {},
+    removeFromCart: (state, action) => {
+      const tempCart = state.carts.filter((item) => item.id !== action.payload);
+      state.carts = tempCart;
+      storeInLocalStorage(state.carts);
+    },
+    clearCart: (state) => {
+        const tempCart = state.carts.filter((item) => item.id !== action.payload);
+        state.carts = tempCart;
+        storeInLocalStorage(state.carts);
   },
 });
