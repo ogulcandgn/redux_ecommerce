@@ -5,7 +5,10 @@ const DetailComp = ({ productDetail }) => {
   const [quantity, setQuantity] = useState(0);
 
   const increment = () => {
-    setQuantity(quantity + 1);
+    //* max stok miktarı kadar arttırılabilir
+    if (quantity < productDetail?.rating?.count) {
+      setQuantity(quantity + 1);
+    }
   };
 
   const decrement = () => {
@@ -13,6 +16,8 @@ const DetailComp = ({ productDetail }) => {
       setQuantity(quantity - 1);
     }
   };
+
+  const addBasket = () => {};
 
   return (
     <div className="flex gap-10 my-20">
@@ -26,15 +31,19 @@ const DetailComp = ({ productDetail }) => {
         <div className="text-orange-600">
           Rating : {productDetail?.rating?.rate}
         </div>
+        <div className="text-orange-600">
+          Stock quantity: {productDetail?.rating?.count}
+        </div>
         <div className="text-5xl font-bold mt-5">
-          {productDetail?.price} <span className="text-sm">TL</span>
+          {productDetail?.price + productDetail?.price * quantity}
+          <span className="text-sm ml-2">TL</span>
         </div>
         <div className="flex items-center gap-5 my-4">
           <div onClick={decrement} className="text-3xl cursor-pointer">
             -
           </div>
           <input
-            className="w-5 text-center text-4xl"
+            className="w-10 text-center text-4xl"
             type="text"
             value={quantity}
           />
@@ -43,7 +52,10 @@ const DetailComp = ({ productDetail }) => {
           </div>
         </div>
         <div>
-          <div className="my-4 border w-[200px] text-2xl text-white rounded-md bg-blue-500 hover:bg-blue-600 cursor-pointer h-16 flex items-center justify-center">
+          <div
+            onClick={addBasket}
+            className="my-4 border w-[200px] text-2xl text-white rounded-md bg-blue-500 hover:bg-blue-600 cursor-pointer h-16 flex items-center justify-center"
+          >
             Sepete Ekle
           </div>
         </div>
