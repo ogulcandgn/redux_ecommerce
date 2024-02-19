@@ -15,7 +15,7 @@ const storeInLocalStorage = (data) => {
 };
 
 const initialState = {
-  cart: fetchFromLocalStorage(),
+  carts: fetchFromLocalStorage(),
   itemCount: 0,
   totalAmount: 0,
 };
@@ -24,6 +24,33 @@ const cartSlice = createSlice({
   name: "cart",
   initialState,
   reducers: {
-    addToCart: (state, action) => {},
+    addToCart: (state, action) => {
+      const IsItemCArt = state.carts.find(
+        (item) => item.id === action.payload.id
+      );
+
+      if (IsItemCArt) {
+        const tempCart = state.carts.map((item) => {
+          if (item.id === action.payload.id) {
+            let tempQty = item.quantity + action.payload.quantity;
+            let tempTotalPrice = tempQty + item.price;
+            return {
+              ...item,
+              quantity: tempQty,
+              totalPrice: tempTotalPrice,
+            };
+          } else {
+            return item;
+          }
+        });
+
+        state.carts = tempCart;
+        storeInLocalStorage(state.carts);
+      } else {
+        state.carts.push(action.payload);
+        storeInLocalStorage(state.carts);
+      }
+    },
+    removeToCart: (state, action) => {},
   },
 });
