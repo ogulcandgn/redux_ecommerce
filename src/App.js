@@ -7,6 +7,7 @@ import TopHeader from "./components/TopHeader";
 import Detail from "./pages/Detail";
 import PageContainer from "./containers/PageContainer";
 import Navbar from "./components/navbar/Navbar";
+import Cart from "./pages/Cart";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products/:id" element={<Detail />} />
+            <Route path="/cart" element={<Cart />} />
           </Routes>
         </Router>
       </PageContainer>

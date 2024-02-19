@@ -1,8 +1,12 @@
 import React from "react";
 import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../redux/CartSlice";
 
 const DetailComp = ({ productDetail }) => {
   const [quantity, setQuantity] = useState(0);
+
+  const dispatch = useDispatch();
 
   const increment = () => {
     //* max stok miktarı kadar arttırılabilir
@@ -17,7 +21,17 @@ const DetailComp = ({ productDetail }) => {
     }
   };
 
-  const addBasket = () => {};
+  const addBasket = () => {
+    dispatch(
+      addToCart({
+        id: productDetail?.id,
+        title: productDetail?.title,
+        image: productDetail?.image,
+        price: productDetail?.price,
+        quantity: quantity,
+      })
+    );
+  };
 
   return (
     <div className="flex gap-10 my-20">
