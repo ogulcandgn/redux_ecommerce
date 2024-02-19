@@ -2,12 +2,12 @@ import React from "react";
 
 const DetailComp = ({ productDetail }) => {
   return (
-    <div>
-      <img src={productDetail?.image} />
+    <div className="flex gap-10 my-20">
+      <img src={productDetail?.image} className="w-[500px] h-[500px]" />
       <div>
-        <div>{productDetail?.title}</div>
+        <div className="text-4xl font-bold">{productDetail?.title}</div>
+        <div className="my-4">{productDetail?.description}</div>
       </div>
-      deneme
     </div>
   );
 };

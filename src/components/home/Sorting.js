@@ -7,7 +7,7 @@ const Sorting = ({ setSort }) => {
         onChange={(e) => setSort(e.target.value)}
         className="bg-white py-3 px-5"
       >
-        <option className="!font-bold" disabled value="">
+        <option className="!font-bold" value="">
           Seçiniz
         </option>
         <option value="inc">Artan</option>
