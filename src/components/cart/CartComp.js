@@ -9,8 +9,6 @@ const CartComp = ({ cart }) => {
 
   if (cart === undefined || cart?.quantity <= 0) return null;
 
-  const handleGoHome = () => {};
-
   return (
     <div className="my-10 p-2 flex items-center justify-between">
       <img

@@ -17,7 +17,7 @@ const Cart = () => {
     dispatch(getCartTotal());
   }, [dispatch]);
   return (
-    <div>
+    <div className="h-[1000x]">
       {carts?.length > 0 ? (
         <div>
           {carts?.map((cart, index) => {
@@ -28,7 +28,7 @@ const Cart = () => {
       ) : (
         <div>Basket is empty....</div>
       )}
-      <div className="flex justify-between mb-5 text-lg ">
+      <div className="flex justify-between mb-5 text-lg">
         <div></div>
         <div className="border rounded-md p-3 bg-blue-500 text-white">
           Total Amount : <span className="text-2xl">{totalAmount} TL </span>
