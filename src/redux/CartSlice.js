@@ -29,8 +29,10 @@ const cartSlice = createSlice({
         (item) => item.id === action.payload.id
       );
 
+      console.log("mustif", action, IsItemCArt);
       if (IsItemCArt) {
         const tempCart = state.carts.map((item) => {
+          console.log(item, "+action", action?.payload);
           if (item.id === action.payload.id) {
             let tempQty = item.quantity + action.payload.quantity;
             let tempTotalPrice = tempQty + item.price;
@@ -43,6 +45,8 @@ const cartSlice = createSlice({
             return item;
           }
         });
+
+        console.log(tempCart);
 
         state.carts = tempCart;
         storeInLocalStorage(state.carts);

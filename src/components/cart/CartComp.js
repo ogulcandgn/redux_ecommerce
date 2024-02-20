@@ -5,13 +5,16 @@ import { removeFromCart } from "../../redux/CartSlice";
 
 const CartComp = ({ cart }) => {
   const navigate = useNavigate();
-
   const dispatch = useDispatch();
+
+  if (cart === undefined || cart?.quantity <= 0) return null;
+
+  const handleGoHome = () => {};
 
   return (
     <div className="my-10 p-2 flex items-center justify-between">
       <img
-        // onClick={() => navigate("/products/:id")}
+        onClick={() => navigate(`/products/${cart.id}`)}
         className="w-[150px] h-[150px] border p-3 shadow-md cursor-pointer"
         src={cart?.image}
         alt=""

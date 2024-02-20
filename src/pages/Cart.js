@@ -21,9 +21,9 @@ const Cart = () => {
       {carts?.length > 0 ? (
         <div>
           {carts?.map((cart, index) => {
+            console.log("cart", cart);
             return <CartComp key={index} cart={cart} />;
           })}
-          <CartComp />
         </div>
       ) : (
         <div>Basket is empty....</div>

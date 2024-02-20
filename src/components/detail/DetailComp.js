@@ -16,7 +16,7 @@ const DetailComp = ({ productDetail }) => {
   };
 
   const decrement = () => {
-    if (quantity > 0) {
+    if (quantity > 1) {
       setQuantity(quantity - 1);
     }
   };
@@ -49,7 +49,7 @@ const DetailComp = ({ productDetail }) => {
           Stock quantity: {productDetail?.rating?.count}
         </div>
         <div className="text-5xl font-bold mt-5">
-          {productDetail?.price + productDetail?.price * quantity}
+          {productDetail?.price * quantity}
           <span className="text-sm ml-2">TL</span>
         </div>
         <div className="flex items-center gap-5 my-4">
