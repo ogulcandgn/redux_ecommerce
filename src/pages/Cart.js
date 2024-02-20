@@ -15,7 +15,7 @@ const Cart = () => {
     dispatch(getCartTotal());
   }, [dispatch]);
   return (
-    <div className="h-[1000x]">
+    <div className="min-h-screen">
       {carts?.length > 0 ? (
         <div>
           {carts?.map((cart, index) => {
