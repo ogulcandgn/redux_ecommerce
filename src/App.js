@@ -8,6 +8,7 @@ import Detail from "./pages/Detail";
 import PageContainer from "./containers/PageContainer";
 import Navbar from "./components/navbar/Navbar";
 import Cart from "./pages/Cart";
+import Footer from "./components/footer/Footer";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           </Routes>
         </Router>
       </PageContainer>
+      <Footer />
     </div>
   );
 }

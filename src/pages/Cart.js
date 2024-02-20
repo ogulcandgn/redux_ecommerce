@@ -28,6 +28,12 @@ const Cart = () => {
       ) : (
         <div>Basket is empty....</div>
       )}
+      <div className="flex justify-between mb-5 text-lg ">
+        <div></div>
+        <div className="border rounded-md p-3 bg-blue-500 text-white">
+          Total Amount : <span className="text-2xl">{totalAmount} TL </span>
+        </div>
+      </div>
     </div>
   );
 };
