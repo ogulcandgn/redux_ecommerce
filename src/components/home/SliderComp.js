@@ -27,7 +27,7 @@ const SliderComp = () => {
             </div>
             <div className="!text-bold text-orange-800 text-xl">İncele</div>
           </div>
-          <img src={shoes1} alt="" className="h-auto max-w-xl " />
+          <img src={shoes1} alt="product" className="h-auto max-w-xl " />
         </div>
         <div className="!flex items-center justify-between mt-10 bg-gray-100">
           <div className="p-5">
@@ -40,7 +40,7 @@ const SliderComp = () => {
             </div>
             <div className="!text-bold text-orange-800 text-xl">İncele</div>
           </div>
-          <img src={shoes2} alt="" className="h-auto max-w-xl " />
+          <img src={shoes2} alt="product" className="h-auto max-w-xl " />
         </div>
         <div className="!flex items-center justify-between mt-10 bg-gray-100">
           <div className="p-5">
@@ -53,7 +53,7 @@ const SliderComp = () => {
             </div>
             <div className="!text-bold text-orange-800 text-xl">İncele</div>
           </div>
-          <img src={shoes3} alt="" className="h-auto max-w-xl " />
+          <img src={shoes3} alt="product" className="h-auto max-w-xl " />
         </div>
       </Slider>
     </div>

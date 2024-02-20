@@ -36,6 +36,7 @@ const DetailComp = ({ productDetail }) => {
   return (
     <div className="flex gap-10 my-20">
       <img
+        alt="product"
         src={productDetail?.image}
         className="w-[500px] h-[500px] shadow-lg p-10"
       />

@@ -15,7 +15,7 @@ const CartComp = ({ cart }) => {
         onClick={() => navigate(`/products/${cart.id}`)}
         className="w-[150px] h-[150px] border p-3 shadow-md cursor-pointer"
         src={cart?.image}
-        alt=""
+        alt="product"
       />
       <div className="w-[476px]">
         <div className="text-xl">{cart?.title}</div>

@@ -11,7 +11,11 @@ const Product = ({ product }) => {
       <div className="text-xl font-bold absolute rounded-md top-0 right-0 bg-black text-white m-3 p-1">
         {product?.price}₺
       </div>
-      <img src={product?.image} className="w-[200px] h-[200px]  m-auto" />
+      <img
+        src={product?.image}
+        className="w-[200px] h-[200px]  m-auto"
+        alt="product"
+      />
       <div className="text-center mt-3 px-3 text-lg font-bold">
         {product?.title}
       </div>
