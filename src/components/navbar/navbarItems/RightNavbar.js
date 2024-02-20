@@ -4,12 +4,13 @@ import { IoSearch } from "react-icons/io5";
 import { BsBasket } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
 import { getCartTotal } from "../../../redux/CartSlice";
+import { useNavigate } from "react-router-dom";
 
 const RightNavbar = () => {
   const dispatch = useDispatch();
-  const { carts } = useSelector((state) => state.carts);
+  const { itemCount } = useSelector((state) => state.carts);
 
-  console.log(carts, "cart");
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getCartTotal());
@@ -27,9 +28,9 @@ const RightNavbar = () => {
       </div>
       <FaRegHeart size={26} />
 
-      <div className="relative">
+      <div onClick={() => navigate("cart")} className="relative cursor-pointer">
         <div className="absolute -top-3 -right-3 bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center">
-          {carts?.length}
+          {itemCount}
         </div>
         <BsBasket size={26} />
       </div>

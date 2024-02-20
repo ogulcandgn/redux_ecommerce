@@ -13,12 +13,13 @@ const LeftNavbar = () => {
         >
           Home
         </Link>
+        <Link className="mr-3 font-bold text-md" to="cart">
+          Basket
+        </Link>
         <Link className="mr-3 font-bold text-md" to="about">
           About Us
         </Link>
-        <Link className="mr-3 font-bold text-md" to="about">
-          Basket
-        </Link>
+
         <Link className="mr-3 font-bold text-md" to="about">
           Contact
         </Link>
