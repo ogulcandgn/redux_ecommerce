@@ -20,7 +20,7 @@ const Detail = () => {
   console.log(productDetailStatus);
   return (
     <div>
-      {productDetailStatus == "LOADING" ? (
+      {productDetailStatus === "LOADING" ? (
         <Loading />
       ) : (
         <DetailComp productDetail={productDetail} />

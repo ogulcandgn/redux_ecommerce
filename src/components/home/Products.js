@@ -35,16 +35,16 @@ const Products = ({ category, sort }) => {
 
   return (
     <div>
-      {productsStatus == "LOADING" ? (
+      {productsStatus === "LOADING" ? (
         <Loading />
       ) : (
         <>
           <div className="flex flex-wrap">
             {currentItems
               ?.sort((a, b) =>
-                sort == "inc"
+                sort === "inc"
                   ? a.price - b.price
-                  : sort == "dec"
+                  : sort === "dec"
                   ? b.price - a.price
                   : null
               )

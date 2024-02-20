@@ -6,7 +6,6 @@ import CartComp from "../components/cart/CartComp";
 import { getCartTotal } from "../redux/CartSlice";
 
 const Cart = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { carts, totalAmount, itemsCount } = useSelector(
     (state) => state.carts
